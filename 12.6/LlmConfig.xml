@@ -85,15 +85,7 @@
         <Property Name="timeout" DataType="Integer" DefaultValue="180" Description="Request timeout in seconds. Range: 10-600" />
       </Properties>
     </Model>
-
-    <Model Name="o3" Provider="OpenAi" InputCost="2.00" OutputCost="8.00" LoopType="ResponsesApi" SupportsReasoning="true" SupportsVision="true" SupportsAttachmentQuality="true" DisplayName="O3" Description="Advanced reasoning model for complex tasks">
-      <Properties>
-        <!-- Reasoning models reject temperature/top_p — API returns 400. https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning -->
-        <Property Name="context_window" DataType="Integer" DefaultValue="200000" IsContextWindowTokenBudget="true" Description="Total model context window in tokens (input + output budget)." />
-        <Property Name="max_tokens" DataType="Integer" DefaultValue="4096" Description="Maximum number of tokens to generate. Range: 1-32768" />
-        <Property Name="timeout" DataType="Integer" DefaultValue="300" Description="Request timeout in seconds. Range: 10-600" />
-      </Properties>
-    </Model>
+
 
     <Model Name="gpt-4.1" Provider="OpenAi" InputCost="2.00" OutputCost="8.00" LoopType="ResponsesApi" SupportsVision="true" SupportsAttachmentQuality="true" DisplayName="GPT-4.1" Description="Enhanced GPT-4 model">
       <Properties>
