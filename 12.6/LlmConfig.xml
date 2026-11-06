@@ -140,7 +140,7 @@
       </Properties>
     </Model>
 
-    <Model Name="gpt-5-mini" Provider="OpenAi" InputCost="0.25" OutputCost="2.00" LoopType="ResponsesApi" SupportsReasoning="true" EnabledByDefault="true" SupportsVision="true" SupportsAttachmentQuality="true" DisplayName="GPT-5 Mini" Description="Efficient GPT-5 variant">
+    <Model Name="gpt-5-mini" Provider="OpenAi" InputCost="0.30" OutputCost="2.00" LoopType="ResponsesApi" SupportsReasoning="true" EnabledByDefault="true" SupportsVision="true" SupportsAttachmentQuality="true" DisplayName="GPT-5 Mini" Description="Efficient GPT-5 variant">
       <Properties>
         <!-- Reasoning models reject temperature/top_p/frequency_penalty/presence_penalty — API returns 400. https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning -->
         <Property Name="context_window" DataType="Integer" DefaultValue="256000" IsContextWindowTokenBudget="true" Description="Total model context window in tokens (input + output budget)." />
@@ -219,6 +219,17 @@
     </Model>
 
     <Model Name="claude-haiku-4-5" Provider="Anthropic" InputCost="1.00" OutputCost="5.00" LoopType="Standard" SupportsReasoning="true" EnabledByDefault="true" SupportsVision="true" DisplayName="Claude Haiku 4.5" Description="Fastest and most cost-effective Claude model">
+      <Properties>
+        <Property Name="context_window" DataType="Integer" DefaultValue="200000" IsContextWindowTokenBudget="true" Description="Total model context window in tokens (input + output budget)." />
+        <Property Name="temperature" DataType="Decimal" DefaultValue="1.0" Description="Controls randomness in output. Range: 0.0-1.0" />
+        <Property Name="max_tokens" DataType="Integer" DefaultValue="32000" Description="Maximum number of tokens to generate. Range: 1-64000. REQUIRED." />
+        <Property Name="top_p" DataType="Decimal" DefaultValue="1.0" Description="Nucleus sampling parameter. Range: 0.0-1.0" />
+        <Property Name="top_k" DataType="Integer" DefaultValue="0" Description="Top-k sampling parameter. Range: 0-500" />
+        <Property Name="timeout" DataType="Integer" DefaultValue="300" Description="Request timeout in seconds. Range: 10-1800" />
+      </Properties>
+    </Model>
+
+    <Model Name="claude-autoapply-test" Provider="Anthropic" InputCost="1.00" OutputCost="5.00" LoopType="Standard" SupportsReasoning="true" EnabledByDefault="true" SupportsVision="true" DisplayName="Auto-Apply Test Model" Description="Temporary model used to test automatic LLM catalog updates">
       <Properties>
         <Property Name="context_window" DataType="Integer" DefaultValue="200000" IsContextWindowTokenBudget="true" Description="Total model context window in tokens (input + output budget)." />
         <Property Name="temperature" DataType="Decimal" DefaultValue="1.0" Description="Controls randomness in output. Range: 0.0-1.0" />
